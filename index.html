@@ -23,39 +23,36 @@
     <script>
     var colorTeal = "rgb(57, 204, 204)";
 
-    $(document).ready(function() {
+    $(document).ready(function () {
+        /* Step 1: adding a class */
+        $("#box1").addClass("outlined");
+        $("#box2").addClass("outlined");
+        $("#box3").addClass("outlined");
 
-		/* Step 1: adding a class */
-    $("#box1").addClass("outlined");
-    $("#box2").addClass("outlined");
-    $("#box3").addClass("outlined");
+        /* Step 2: jQuery modifying CSS attributes */
+        $('#button_toggle_colors').click(function (evt) {
+          $(".box").toggleClass("teal");
+        });
 
-		/* Step 2: jQuery modifying CSS attributes */
-    $('#button_toggle_colors').click(function(evt) {
-      $(".box").toggleClass("teal");
-    });
+        /* Step 3: jQuery adding/removing/modifying classes */
+        $('#button_toggle_roundedges').click(function (evt) {
+          $(".box").toggleClass("round-edge");
+        });
 
-		/* Step 3: jQuery adding/removing/modifying classes */
-    $('#button_toggle_roundedges').click(function(evt) {
-      $(".box").toggleClass("round-edge");
-    });
-
-		/* Step 4: Adding new elements */
-    $('#button_add_box').click(function(evt) {
-      $('#boxes').each(
-        function() {
-          $("<div id=\"box" + ($('.box', $(this)).length + 1) + "\" class=\"box outlined\"></div>").appendTo("#boxes");
-        }
-      );
-      
-    });
+        /* Step 4: Adding new elements */
+        $('#button_add_box').click(function (evt) {
+          $('#boxes').each(
+            function () {
+              $("<div id=\"box" + ($('.box', $(this)).length + 1) + "\" class=\"box outlined\"></div>").appendTo("#boxes");
+            }
+          );
+        });
 
     });
     </script>
   </head>
   <body>
     <div class="container">
-
       <div id="boxes">
         <!-- Step 1: Add the 'outlined' class to each of the boxes, but not here as HTML code -->
         <div id="box1" class="box"></div>
@@ -80,7 +77,6 @@
           <li><b>Add a New Box</b>: Adds one new box to the container.</li>
         </ul>
       </div>
-
     </div>
   </body>
 </html>
